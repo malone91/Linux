@@ -1,0 +1,34 @@
+在项目中难免会用到Redis作为一个利器来实现队列或者处理高速发生的东西，所以我们需要安装Redis。由于本机之前安装过Redis，
+为了再将安装过程记录下来，先将现有的Redis卸载。
+ps aux|grep redis 查看redis-server是否在启动
+窗口显示如下：
+root     11862  0.1  0.1  27748  1852 pts/1    Sl+  20:42   0:00 ./redis-server *:6379
+root     11874  0.0  0.0   5980   760 pts/0    S+   20:46   0:00 grep redis
+关闭这些进程，然后删除掉Redis的文件夹就可以了。
+键入命令：kill -9 11862  在另一个服务窗口显示Redis服务已经被杀死（强行终止）。
+这里还有一个是kill 和 kill -9 命令的区别：
+@执行kill命令，系统会发送一个SIGTERM信号给对应的程序。当程序接收到该signal信号后，将会发生以下事情：
+程序立刻停止
+当程序释放相应资源后再停止
+程序可能仍然继续运行
+@kill -9命令，系统给对应程序发送的信号是SIGKILL，即exit。exit信号不会被系统阻塞，所以kill -9能顺利杀掉进程。
+所以使用kill -9 进程号就可以了。
+
+删除文件夹redis：
+
+-r 就是向下递归，不管有多少级目录，一并删除
+-f 就是直接强行删除，不作任何提示的意思
+rm -rf /文件路径：将会删除/var/log/httpd/access目录以及其下所有文件、文件夹
+rm -f /var/log/httpd/access.log：将会强制删除/var/log/httpd/access.log这个文件
+
+安装redis-4.0.9.tar.gz，笔者使用的是WinSCP工具将本地的Redis压缩包传入到Linux文件夹下。
+mkdir redis 在相关目录（local或者local的app目录）创建一个Redis的文件，然后上传redis压缩包
+1、tar -zxvf redis-4.0.9.tar.gz 解压
+2、cd redis-4.0.9 进入解压后的目录
+3、make 编译
+4、cd src 进入到src目录
+5、make install 执行安装
+到此安装完毕。
+
+配置习惯：
+但是，由于安装redis的时候，我们没有选择安装路径，故是默认位置安装。在此，我们可以将可执行文件和配置文件移动到习惯的目录。
