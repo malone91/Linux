@@ -7,3 +7,4 @@ pwd 当前目录
 date 系统当前时间
 tar -zxvf xxx.tar.gz 解压tar.gz文件，-z：有gzip属性的，-x：解压，-v：显示所有过程，-f: 使用文件名字
 mkdir xxx 生成xxx文件夹
+whoami 显示当前Linux用户
