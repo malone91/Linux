@@ -27,8 +27,12 @@ mkdir redis 在相关目录（local或者local的app目录）创建一个Redis�
 2、cd redis-4.0.9 进入解压后的目录
 3、make 编译
 4、cd src 进入到src目录
-5、make install 执行安装
+5、make install 执行安装   make install PREFIX=/usr/local/redis
 到此安装完毕。
 
+比较好的安装redis的掘金文章： https://juejin.im/post/59ca8163f265da064e1f6254
+比较好的博客园文章： https://www.cnblogs.com/zerotomax/p/7468833.html
 配置习惯：
 但是，由于安装redis的时候，我们没有选择安装路径，故是默认位置安装。在此，我们可以将可执行文件和配置文件移动到习惯的目录。
+
+安装完之后启动redis：
