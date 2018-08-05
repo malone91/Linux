@@ -38,3 +38,24 @@ crontab -e  编辑crontab服务文件，保存文件并并退出
 ps -ax | grep cron
 
 /sbin/service crond start
+
+linux系统也有位数之分，所以在linux上安装一些软件，比如jdk之类的就需要注意下版本。
+
+查看linux系统位数最简单的命令（这里以redhat为例，不同版本linux命令也许不同）
+
+
+复制代码
+命令1：getconf LONG_BIT
+结果：64
+
+命令2：uname -a
+结果：Linux Test004MUJUP 2.6.32-431.23.3.el6.x86_64 #1 SMP Wed Jul 16 06:12:23 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux
+
+命令3：uname -r
+结果：2.6.32-431.23.3.el6.x86_64
+
+命令4：cat /proc/version
+结果：Linux version 2.6.32-431.23.3.el6.x86_64 (mockbuild@x86-027.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Wed Jul 16 06:12:23 EDT 2014
+复制代码
+x86_64则说明你是64位内核, 跑的是64位的系统.
+i386, i686说明你是32位的内核, 跑的是32位的系统
